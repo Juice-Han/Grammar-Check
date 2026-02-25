@@ -1,0 +1,5 @@
+[[redirects]]
+  # SPA 라우팅을 위해 모든 경로를 index.html로 리다이렉트
+  from = "/*"
+  to = "/index.html"
+  status = 200

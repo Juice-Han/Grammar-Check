@@ -1,5 +1,5 @@
 import './App.css'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import NotFound from './pages/NotFound'
 import DefaultLayout from './Layouts/DefaultLayout'
 import GrammarCheckPage from './pages/GrammarCheckPage'
