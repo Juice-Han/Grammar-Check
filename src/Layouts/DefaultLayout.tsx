@@ -1,4 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
+import CheckIcon from '../assets/CheckIcon.png'
+import DocsIcon from '../assets/DocsIcon.png'
 
 const DefaultLayout = () => {
   return (
@@ -17,7 +19,7 @@ const DefaultLayout = () => {
             className="flex-1 text-sm flex flex-col md:justify-center items-center hover:cursor-pointer"
           >
             <img
-              src="src/assets/CheckIcon.png"
+              src={CheckIcon}
               alt="맞춤법 검사"
               width={25}
               className="text-black"
@@ -31,7 +33,7 @@ const DefaultLayout = () => {
             to={'/wrong-summary'}
             className="flex-1 text-sm flex flex-col md:justify-center items-center hover:cursor-pointer"
           >
-            <img src="src/assets/DocsIcon.png" alt="오답 정리" width={25} className="text-black" />
+            <img src={DocsIcon} alt="오답 정리" width={25} className="text-black" />
             오답 정리
           </Link>
         </div>
