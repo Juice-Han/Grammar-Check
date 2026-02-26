@@ -11,19 +11,14 @@ const DefaultLayout = () => {
       </div>
 
       {/* Menu Bar */}
-      <div className="fixed w-full h-16 bottom-0 left-0 border border-gray-700 shadow- md:w-20 md:h-full md:top-0 md:left-0">
+      <div className="fixed w-full h-16 bottom-0 left-0 border-t border-gray-700 md:w-20 md:h-full md:top-0 md:left-0 md:border-t-0 md:border-r">
         <div className="flex h-full justify-around items-center md:flex-col">
           {/* Navigation Icon */}
           <Link
             to={'/grammar-check'}
             className="flex-1 text-sm flex flex-col md:justify-center items-center hover:cursor-pointer"
           >
-            <img
-              src={CheckIcon}
-              alt="맞춤법 검사"
-              width={25}
-              className="text-black"
-            />
+            <img src={CheckIcon} alt="맞춤법 검사" width={25} className="text-black" />
             맞춤법 검사
           </Link>
           {/* Divider */}
