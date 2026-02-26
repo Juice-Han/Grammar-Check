@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import AuthLayout from '../components/auth/AuthLayout'
 import Input from '../components/ui/Input'
 import Button from '../components/ui/Button'
-import { validateEmail, validatePassword } from '../utils/validation'
+import { validateEmail } from '../utils/validation'
 import { signIn, getAuthErrorMessage } from '../utils/authHelpers'
 
 const LoginPage = () => {
@@ -53,37 +53,14 @@ const LoginPage = () => {
 
     if (name === 'email') {
       error = validateEmail(value) || ''
-    } else if (name === 'password') {
-      error = validatePassword(value) || ''
     }
 
     setErrors((prev) => ({ ...prev, [name]: error }))
     return error
   }
 
-  const validateForm = (): boolean => {
-    const emailError = validateEmail(formData.email) || ''
-    const passwordError = validatePassword(formData.password) || ''
-
-    setErrors({
-      email: emailError,
-      password: passwordError,
-    })
-
-    setTouched({
-      email: true,
-      password: true,
-    })
-
-    return !emailError && !passwordError
-  }
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    if (!validateForm()) {
-      return
-    }
 
     setIsLoading(true)
     setAuthError(null)
@@ -103,7 +80,7 @@ const LoginPage = () => {
   }
 
   return (
-    <AuthLayout title="로그인" subtitle="문법 검사 서비스에 오신 것을 환영합니다">
+    <AuthLayout title="로그인" subtitle="맞춤법을 검사하고 틀린 문법을 공부해보세요">
       <form onSubmit={handleSubmit} className="space-y-6">
         {successMessage && (
           <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
@@ -151,10 +128,7 @@ const LoginPage = () => {
 
         <div className="text-center text-sm">
           <span className="text-gray-600">계정이 없으신가요? </span>
-          <Link
-            to="/signup"
-            className="text-blue-600 hover:text-blue-700 font-medium"
-          >
+          <Link to="/signup" className="text-blue-600 hover:text-blue-700 font-medium">
             회원가입
           </Link>
         </div>
